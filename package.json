@@ -1,0 +1,65 @@
+{
+    "name": "github-projects",
+    "displayName": "Github-Projects",
+    "description": "A Visual Studio Code extension to manage Github Projects and their Kanban boards.",
+    "version": "0.0.1",
+    "publisher": "parithon",
+    "engines": {
+        "vscode": "^1.24.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "github",
+        "projects"
+    ],
+    "repository":{
+        "url": "https://github.com/parithon/VSCode-Github-Projects.git"
+    },
+    "homepage": "https://github.com/parithon/VSCode-Github-Projects/README.md",
+    "activationEvents": [
+        "onCommand:vscode-github.configure",
+        "onView:repositoryProjects"
+    ],
+    "main": "./out/github",
+    "contributes": {
+        "commands": [
+            {
+                "command": "vscode-github.configure",
+                "title": "Show the Github Projects for this repository"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "icon": "src/images/github-icon.svg",
+                    "id": "githubProjectsView",
+                    "title": "Github"
+                }
+            ]
+        },
+        "views": {
+            "githubProjectsView": [
+                {
+                    "id": "repositoryProjects",
+                    "name": "Repository Projects"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
